@@ -1,0 +1,13 @@
+{
+  "name": "SeedballPlantation",
+  "short_name": "Seedballs",
+  "description": "Wiki collaboratif offline-first de recettes de seedballs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a5d1a",
+  "theme_color": "#1a5d1a",
+  "icons": [
+    {"src": "/icons/icon-192x192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/icons/icon-512x512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}
