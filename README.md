@@ -20,4 +20,4 @@ Live bientôt → https://seedballplantation.com
 - Traduis en espagnol, portugais, swahili, arabe…
 - Améliore le design / UX / cartes
 
-→ Voir CONTRIBUTING.md
+→ Bientôt: Voir CONTRIBUTING.md
