@@ -1,0 +1,26 @@
+SeedballPlantation/
+├── README.md                     ← déjà fait (ton copié-collé)
+├── LICENSE                       ← Nouveau (MIT standard)
+├── CONTRIBUTING.md               ← Nouveau (guide contributions)
+├── docs/
+│   └── Architecture-v3.md        ← Ton doc v3 (je te donne en Markdown pour facile)
+├── frontend/
+│   ├── index.php                 ← Ton original (copie-colle)
+│   ├── manifest.json             ← Nouveau
+│   ├── sw.js                     ← Nouveau (service worker)
+│   ├── offline.html              ← Nouveau (FR)
+│   ├── offline-en.html           ← Nouveau (EN)
+│   ├── fr/
+│   │   └── index.html            ← Nouveau (landing FR)
+│   ├── en/
+│   │   └── index.html            ← Nouveau (landing EN)
+│   └── icons/                    ← Dossier vide pour l'instant (ajoute icônes plus tard via upload)
+├── backend/
+│   ├── docker-compose.yml        ← Ton original de v3
+│   ├── .env.example              ← Nouveau (modèle sans secrets)
+│   ├── nginx/
+│   │   └── nginx.conf            ← Ton original de v3
+│   └── backup/
+│       └── backup-couchdb.sh     ← Ton script de v3
+└── assets/
+    └── logo-seedball.svg         ← Optionnel (ajoute une image simple plus tard)
