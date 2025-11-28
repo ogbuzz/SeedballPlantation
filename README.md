@@ -8,7 +8,7 @@
 - Architecture hybride ultra-économique : 6.22 CAD$/mois  
 - Scalable jusqu’à 5000+ utilisateurs simultanés  
 
-Live dès maintenant → https://seedballplantation.com
+Live bientôt → https://seedballplantation.com
 
 ### Installation en 1 clic (bêta testeurs)
 1. Ouvre le site sur ton téléphone
