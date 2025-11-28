@@ -1,0 +1,71 @@
+version: '3.8'
+
+# Architecture sécurisée avec Nginx reverse proxy
+# CouchDB n'est PAS exposé directement à Internet
+
+services:
+  # Base de données CouchDB (isolée)
+  couchdb:
+    image: couchdb:3.3
+    container_name: seedballs-db
+    environment:
+      - COUCHDB_USER=${COUCHDB_USER}
+      - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
+    volumes:
+      - couchdb-data:/opt/couchdb/data
+      - couchdb-config:/opt/couchdb/etc/local.d
+    # ⚠️ IMPORTANT: expose (pas ports) = accessible seulement dans le réseau Docker
+    expose:
+      - "5984"
+    restart: unless-stopped
+    networks:
+      - seedballs-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5984/_up"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Reverse proxy Nginx (sécurité)
+  nginx:
+    image: nginx:alpine
+    container_name: seedballs-proxy
+    ports:
+      - "80:80"    # HTTP (redirect vers HTTPS)
+      - "443:443"  # HTTPS
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
+      - nginx-logs:/var/log/nginx
+    depends_on:
+      - couchdb
+    restart: unless-stopped
+    networks:
+      - seedballs-net
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Certbot pour SSL Let's Encrypt
+  certbot:
+    image: certbot/certbot
+    container_name: seedballs-certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    # Renouvellement automatique toutes les 12h
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - seedballs-net
+
+networks:
+  seedballs-net:
+    driver: bridge
+
+volumes:
+  couchdb-data:
+  couchdb-config:
+  nginx-logs:

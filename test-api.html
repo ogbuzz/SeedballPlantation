@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API CouchDB</title>
+</head>
+<body>
+    <h1>Test API CouchDB</h1>
+    <button onclick="testAPI()">Tester la connexion</button>
+    <pre id="result"></pre>
+
+    <script src="https://cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+    <script>
+        async function testAPI() {
+            const result = document.getElementById('result');
+            result.textContent = 'Test en cours...\n';
+
+            try {
+                // Test 1: Accès direct API
+                result.textContent += '\n1. Test API REST...\n';
+                const response = await fetch('/seedballs');
+                const data = await response.json();
+                result.textContent += '✅ API accessible: ' + data.db_name + '\n';
+
+                // Test 2: PouchDB sync
+                result.textContent += '\n2. Test PouchDB...\n';
+                const db = new PouchDB('/seedballs');
+                const info = await db.info();
+                result.textContent += '✅ PouchDB connecté: ' + info.doc_count + ' documents\n';
+
+                // Test 3: Écriture
+                result.textContent += '\n3. Test écriture...\n';
+                const doc = await db.put({
+                    _id: 'test-' + Date.now(),
+                    type: 'test',
+                    message: 'Hello from WHC.ca!'
+                });
+                result.textContent += '✅ Document créé: ' + doc.id + '\n';
+
+                result.textContent += '\n🎉 TOUS LES TESTS RÉUSSIS!\n';
+            } catch (error) {
+                result.textContent += '\n❌ ERREUR: ' + error.message + '\n';
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>
