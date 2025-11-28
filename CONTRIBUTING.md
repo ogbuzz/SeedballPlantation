@@ -9,9 +9,6 @@ Merci pour ton intérêt dans ce wiki offline pour seedballs !
 - **Docs** : Complète la v3.
 
 On accepte tout ce qui aide la régénération de la Planète. Questions ? Issue !
-# Comment contribuer à SeedballPlantation
-
-Merci de ton intérêt pour ce projet de régénération des sols via seedballs !
 
 ## Autres Façons de contribuer
 - **Contenu sur SeedballPlantation.com** : Ajoute ou améliore une recette de seedballs testée terrain (ratios, climats, résultats).
