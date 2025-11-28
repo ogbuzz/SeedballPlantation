@@ -8,13 +8,7 @@ Merci pour ton intérêt dans ce wiki offline pour seedballs !
 - **Traductions** : Ajoute ES, PT, SW.
 - **Docs** : Complète la v3.
 
-## Comment faire
-1. Fork le repo.
-2. Branche : `git checkout -b feat/ma-recette`.
-3. Commit : `git commit -m "Ajoute recette sahara"`.
-4. Push et PR.
-
-On merge tout ce qui aide la régénération des sols. Questions ? Issue !
+On accepte tout ce qui aide la régénération de la Planète. Questions ? Issue !
 # Comment contribuer à SeedballPlantation
 
 Merci de ton intérêt pour ce projet de régénération des sols via seedballs !
