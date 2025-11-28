@@ -5,7 +5,7 @@
 - Fonctionne sans aucune connexion internet  
 - Synchronisation automatique dès que le réseau revient  
 - PWA installable en 5 secondes sur Android & iPhone  
-- Architecture hybride ultra-économique : 6.22 CAD$/mois  
+- Architecture base de données hybride ultra-économique : 6.22 CAD$/mois  
 - Scalable jusqu’à 5000+ utilisateurs simultanés  
 
 Live bientôt → https://seedballplantation.com
